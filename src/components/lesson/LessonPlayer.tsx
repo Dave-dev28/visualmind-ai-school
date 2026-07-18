@@ -10,6 +10,7 @@ import LeverBeat from "@/components/beats/LeverBeat";
 import WatchBeat from "@/components/beats/WatchBeat";
 import TypeAnswerBeat from "@/components/beats/TypeAnswerBeat";
 import BeatImage from "@/components/beats/BeatImage";
+import ReadBeat from "@/components/beats/ReadBeat";
 import ProgressDots from "./ProgressDots";
 import TutorButton from "./TutorButton";
 import RecapScreen from "./RecapScreen";
@@ -17,6 +18,8 @@ import RecapScreen from "./RecapScreen";
 /** A concrete "Today you…" verb per beat, for the recap (PRD §F2). */
 function recapVerb(beat: Beat): string {
   switch (beat.type) {
+    case "read":
+      return `Learned: ${beat.title}`;
     case "drag_sort":
       return `Sorted ${beat.items.length} cards into the right groups`;
     case "select":
@@ -131,6 +134,9 @@ export default function LessonPlayer({
         </p>
         {beat.image && <BeatImage image={beat.image} />}
         <div className="flex flex-1 flex-col">
+          {beat.type === "read" && (
+            <ReadBeat beat={beat} onSolved={markSolved} />
+          )}
           {beat.type === "drag_sort" && (
             <DragSortBeat beat={beat} onSolved={markSolved} />
           )}

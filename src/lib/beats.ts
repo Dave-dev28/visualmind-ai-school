@@ -11,6 +11,7 @@
  */
 
 export type BeatType =
+  | "read"
   | "drag_sort"
   | "drag_label"
   | "lever"
@@ -70,6 +71,19 @@ export interface LeverBeat extends BeatBase {
   maxLabel: string;
 }
 
+/** read — the theory beat. A short, warm explanation the student reads BEFORE
+ * the interactive beats that practice it. Keeps the "learn → then do" rhythm:
+ * interactions test understanding, they never replace teaching. ~30–60s read,
+ * so the act-every-90s rule still holds. */
+export interface ReadBeat extends BeatBase {
+  type: "read";
+  title: string;
+  /** Paragraphs of simple English. Keep each one 2–3 sentences. */
+  body: string[];
+  /** Optional "remember this" bullets shown as a highlighted card. */
+  keyPoints?: string[];
+}
+
 /** watch — short YouTube embed (2–3 min max), complement not spine. */
 export interface WatchBeat extends BeatBase {
   type: "watch";
@@ -96,6 +110,7 @@ export interface TypeAnswerBeat extends BeatBase {
 }
 
 export type Beat =
+  | ReadBeat
   | DragSortBeat
   | SelectBeat
   | LeverBeat
