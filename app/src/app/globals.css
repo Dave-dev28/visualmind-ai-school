@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+/*
+  AI School — design language: "fun, simple, proud"
+  Warm dark base + one vivid accent per track (video = hot coral).
+  Big rounded friendly sans, high contrast for sunlight readability.
+*/
+
+:root {
+  /* Warm dark base (not pure black — warmer, softer) */
+  --bg: #17130f;
+  --surface: #211b16;
+  --surface-2: #2c241d;
+  --border: #3a3029;
+
+  --text: #f6efe8;
+  --text-muted: #b6a99b;
+
+  /* Track accent — AI Video = hot coral/orange */
+  --accent: #ff6a3d;
+  --accent-strong: #ff7f57;
+  --accent-ink: #2a0f05;
+
+  --success: #4ade80;
+  --success-ink: #05271a;
+  --danger: #f4a48b;
+
+  /* Motion — feedback, never blocking */
+  --dur-fast: 150ms;
+  --dur: 220ms;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Rounded, friendly */
+  --r-sm: 12px;
+  --r-md: 18px;
+  --r-lg: 26px;
+  --r-pill: 999px;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-ink: var(--accent-ink);
+  --color-success: var(--success);
+  --color-success-ink: var(--success-ink);
+  --color-danger: var(--danger);
+
+  --radius-sm: var(--r-sm);
+  --radius-md: var(--r-md);
+  --radius-lg: var(--r-lg);
+  --radius-pill: var(--r-pill);
+
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  /* prevent horizontal rubber-banding; thumb-first vertical app */
+  overscroll-behavior-y: contain;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Big touch targets everywhere */
+button {
+  touch-action: manipulation;
+}
+
+/* A warm ambient glow behind the app column */
+.app-aura {
+  background:
+    radial-gradient(60% 40% at 50% -5%, rgba(255, 106, 61, 0.14), transparent 70%),
+    var(--bg);
+}
+
+/* Micro-interaction helpers */
+@keyframes pop-in {
+  0% { transform: scale(0.94); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes snap {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+@keyframes celebrate {
+  0% { transform: scale(0.8) rotate(-4deg); opacity: 0; }
+  60% { transform: scale(1.08) rotate(2deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+@keyframes rise {
+  0% { transform: translateY(10px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.animate-pop { animation: pop-in var(--dur) var(--ease) both; }
+.animate-snap { animation: snap var(--dur) var(--ease); }
+.animate-celebrate { animation: celebrate 420ms var(--ease) both; }
+.animate-rise { animation: rise var(--dur) var(--ease) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pop,
+  .animate-snap,
+  .animate-celebrate,
+  .animate-rise {
+    animation: none;
+  }
+}
