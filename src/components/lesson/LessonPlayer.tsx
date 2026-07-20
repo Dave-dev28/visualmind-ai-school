@@ -154,11 +154,25 @@ export default function LessonPlayer({
         </div>
       </section>
 
-      <div className="pt-4">
+      <div className="flex gap-3 pt-4">
+        {index > 0 && (
+          <button
+            onClick={() => setIndex((i) => i - 1)}
+            aria-label="Back to previous step"
+            className="flex-none rounded-[var(--radius-pill)] border-2 px-5 py-4 text-lg font-800 transition-transform active:scale-95"
+            style={{
+              borderColor: "var(--border)",
+              color: "var(--text-muted)",
+              background: "var(--surface)",
+            }}
+          >
+            ←
+          </button>
+        )}
         <button
           onClick={advance}
           disabled={!currentDone}
-          className="w-full rounded-[var(--radius-pill)] py-4 text-lg font-800 transition-all duration-200 disabled:opacity-40"
+          className="flex-1 rounded-[var(--radius-pill)] py-4 text-lg font-800 transition-all duration-200 disabled:opacity-40"
           style={{
             background: currentDone ? "var(--accent)" : "var(--surface-2)",
             color: currentDone ? "var(--accent-ink)" : "var(--text-muted)",

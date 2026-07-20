@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 
@@ -53,6 +54,13 @@ export default function ChoosePathPage() {
   return (
     <main className="app-aura mx-auto flex min-h-dvh w-full max-w-md flex-col px-5 pb-10 pt-[max(1.5rem,env(safe-area-inset-top))]">
       <header>
+        <Link
+          href="/"
+          className="mb-4 grid h-9 w-9 place-items-center rounded-full bg-[var(--surface)] text-[var(--text-muted)] active:scale-95"
+          aria-label="Back to home"
+        >
+          ←
+        </Link>
         <p className="text-sm font-600 text-[var(--accent-strong)]">
           Basics done ✓ — big moment
         </p>
