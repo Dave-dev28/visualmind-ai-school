@@ -22,6 +22,14 @@ insert into public.lessons (id, track, day, title, minutes, content, published)
 values ('video-1', 'AI Video & Cinema', 1, 'The camera''s vocabulary', 14,
 $json${
   "beats": [
+    { "id": "b0", "type": "watch",
+      "prompt": "Before anything else — look what's possible.",
+      "videoId": "LZ5nxL9EjBA",
+      "source": "You Owe Yourself — David, AI-directed",
+      "extra": [
+        { "videoId": "jk_uie_srbE", "source": "Destiny — David, AI-directed" },
+        { "videoId": "_IdkWYzcQR4", "source": "Ocean Drive — David, AI-directed" }
+      ] },
     { "id": "b1", "type": "read",
       "prompt": "First, the idea.",
       "title": "How close the camera is changes how we feel",

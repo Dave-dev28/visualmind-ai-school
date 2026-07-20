@@ -93,6 +93,11 @@ export interface WatchBeat extends BeatBase {
   end?: number;
   /** Attribution shown under the player, e.g. "CGP Grey — How Machines Learn". */
   source: string;
+  /** Extra videos shown as tabs alongside the primary one — for a "look what's
+   * possible" showcase moment (e.g. several short student/instructor clips)
+   * without stacking multiple watch beats back-to-back (PRD §F2: no video
+   * twice in a row). Still counts as ONE beat in the progress dots. */
+  extra?: { videoId: string; source: string; start?: number; end?: number }[];
 }
 
 /** type_answer — short free answer, concept-checked (keyword rubric for now;
