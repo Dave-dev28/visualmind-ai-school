@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { getAllLessons } from "@/lib/lessons";
+import { unlockedIds } from "@/lib/unlock";
 import type { Lesson } from "@/lib/beats";
 
 /**
@@ -45,7 +46,11 @@ export default async function Home() {
   const foundationsDone = foundations.length > 0 && !nextFoundation;
   const nextTrackLesson = trackLessons.find((l) => !doneIds.has(l.id));
 
+  // Classes unlock strictly in order — same rule the lesson page enforces.
+  const unlocked = unlockedIds(lessons, doneIds, profile?.track ?? null);
+
   const firstName = (profile?.display_name || "").split(" ")[0] || "there";
+  const initial = (firstName[0] || "?").toUpperCase();
 
   // What's the one dominant thing right now?
   let hero: React.ReactNode;
@@ -115,12 +120,22 @@ export default async function Home() {
             Hey {firstName} — ready to make something?
           </h1>
         </div>
-        <div
-          className="flex flex-none items-center gap-1.5 rounded-[var(--radius-pill)] px-3 py-1.5 text-sm font-800"
-          style={{ background: "var(--surface)", color: "var(--accent-strong)" }}
-          title="Your creation credits"
-        >
-          ⚡ <span>{profile?.credits ?? 0}</span>
+        <div className="flex flex-none items-center gap-2">
+          <div
+            className="flex items-center gap-1.5 rounded-[var(--radius-pill)] px-3 py-1.5 text-sm font-800"
+            style={{ background: "var(--surface)", color: "var(--accent-strong)" }}
+            title="Your creation credits"
+          >
+            ⚡ <span>{profile?.credits ?? 0}</span>
+          </div>
+          <Link
+            href="/profile"
+            aria-label="Profile and settings"
+            className="grid h-10 w-10 place-items-center rounded-full text-base font-800 active:scale-95"
+            style={{ background: "var(--accent)", color: "var(--accent-ink)" }}
+          >
+            {initial}
+          </Link>
         </div>
       </header>
 
@@ -137,6 +152,7 @@ export default async function Home() {
             lesson={l}
             done={doneIds.has(l.id)}
             active={nextFoundation?.id === l.id}
+            locked={!unlocked.has(l.id)}
           />
         ))}
         <div
@@ -169,6 +185,7 @@ export default async function Home() {
             lesson={l}
             done={doneIds.has(l.id)}
             active={nextTrackLesson?.id === l.id && !nextFoundation}
+            locked={!unlocked.has(l.id)}
           />
         ))}
       </div>
@@ -213,11 +230,59 @@ function MapRow({
   lesson,
   done,
   active,
+  locked,
 }: {
   lesson: Lesson;
   done: boolean;
   active: boolean;
+  locked: boolean;
 }) {
+  const inner = (
+    <>
+      <span
+        className="grid h-7 w-7 flex-none place-items-center rounded-full text-sm font-800"
+        style={{
+          background: done ? "var(--success)" : "var(--surface-2)",
+          color: done ? "var(--success-ink)" : "var(--text-muted)",
+        }}
+      >
+        {done ? "✓" : locked ? "🔒" : lesson.day}
+      </span>
+      <span className="min-w-0">
+        <span
+          className="block truncate text-sm font-700"
+          style={{
+            textDecoration: done ? "line-through" : "none",
+            textDecorationColor: "var(--text-muted)",
+          }}
+        >
+          {lesson.title}
+        </span>
+        <span className="block text-xs text-[var(--text-muted)]">
+          {done
+            ? "Done · tap to replay"
+            : locked
+              ? "Finish the class before this to unlock"
+              : `${lesson.track} · ${lesson.minutes} min`}
+        </span>
+      </span>
+    </>
+  );
+
+  // Locked classes are not links at all — the lesson page also blocks them
+  // server-side, so the lock is real, not decoration.
+  if (locked) {
+    return (
+      <div
+        className="flex items-center gap-3 rounded-[var(--radius-md)] px-4 py-3"
+        style={{ background: "var(--surface)", opacity: 0.35 }}
+        aria-disabled
+      >
+        {inner}
+      </div>
+    );
+  }
+
   return (
     <Link
       href={`/lesson/${lesson.id}`}
@@ -231,29 +296,7 @@ function MapRow({
         filter: done ? "saturate(0.6)" : "none",
       }}
     >
-      <span
-        className="grid h-7 w-7 flex-none place-items-center rounded-full text-sm font-800"
-        style={{
-          background: done ? "var(--success)" : "var(--surface-2)",
-          color: done ? "var(--success-ink)" : "var(--text-muted)",
-        }}
-      >
-        {done ? "✓" : lesson.day}
-      </span>
-      <span className="min-w-0">
-        <span
-          className="block truncate text-sm font-700"
-          style={{
-            textDecoration: done ? "line-through" : "none",
-            textDecorationColor: "var(--text-muted)",
-          }}
-        >
-          {lesson.title}
-        </span>
-        <span className="block text-xs text-[var(--text-muted)]">
-          {done ? "Done · tap to replay" : `${lesson.track} · ${lesson.minutes} min`}
-        </span>
-      </span>
+      {inner}
     </Link>
   );
 }
