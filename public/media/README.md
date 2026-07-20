@@ -78,5 +78,63 @@ and reject any output that contains lettering.
 
 ---
 
+# Track: AI Video & Cinema (chosen after Foundations)
+
+## Day 1 — The camera's vocabulary (shot sizes)
+
+| File | Where it shows | Generation prompt |
+|---|---|---|
+| `l6-shot-wide.jpg` | Lever state — wide | A full-body figure in a clear, grounded environment, calm neutral framing, room to breathe around them |
+| `l6-shot-medium.jpg` | Lever state — medium | A figure framed from the waist up, natural conversational distance, warm approachable mood |
+| `l6-shot-close.jpg` | Lever state — close-up | A face filling most of the frame, intimate and emotionally direct, soft warm light |
+| `l6-shot-xcu.jpg` | Lever state — extreme wide | A tiny lone figure dwarfed by a vast dramatic landscape, epic and lonely mood |
+
+## Day 2 — Angles & the story they tell
+
+| File | Where it shows | Generation prompt |
+|---|---|---|
+| `l6-angle-low.jpg` | Lever state — low angle | Camera looking sharply upward at a confident figure who towers over the frame, powerful dominant mood |
+| `l6-angle-eye.jpg` | Lever state — eye-level | Two figures framed at equal eye height, neutral balanced conversation mood |
+| `l6-angle-high.jpg` | Lever state — high angle | Camera looking sharply down at a small, vulnerable-looking figure below, diminished mood |
+| `l6-angle-pov.jpg` | Lever state — POV | First-person view through a figure's own eyes looking at their hands or straight ahead, immersive framing |
+
+## Day 3 — Prompting the camera (movement; existing 'demo' lesson)
+
+| File | Where it shows | Generation prompt |
+|---|---|---|
+| `l6-motion-locked.jpg` | Lever state — locked off | A perfectly still, calm scene, camera frozen in place, observational quiet mood |
+| `l6-motion-push.jpg` | Lever state — slow push-in | A face growing slightly larger in frame as if the camera drifted closer, gentle intimate blur at the edges |
+| `l6-motion-dolly.jpg` | Lever state — steady dolly | A smooth confident forward glide past a figure, cinematic motion streaks, deliberate mood |
+| `l6-motion-whip.jpg` | Lever state — fast whip | A sudden motion-blurred rush past the frame, energetic chaotic streaks, tense fast mood |
+
+## Day 4 — Lighting a face like a movie
+
+| File | Where it shows | Generation prompt |
+|---|---|---|
+| `l6-light-flat.jpg` | Lever state — flat, even | A face lit evenly from the front with no shadows, bright neutral office-like mood |
+| `l6-light-soft.jpg` | Lever state — soft key+fill | A face lit with gentle warm balanced light, soft flattering shadows, natural glowing mood |
+| `l6-light-dramatic.jpg` | Lever state — dramatic low-key | A face lit strongly from one side only, deep moody shadows on the other side, cinematic serious mood |
+| `l6-light-horror.jpg` | Lever state — horror underlight | A face lit harshly from directly below with no fill light, unsettling frightening shadows upward |
+
+## Day 5 — Planning before you prompt
+
+| File | Where it shows | Generation prompt |
+|---|---|---|
+| `l6-planning.jpg` | Opening question | A desk with hand-drawn storyboard sketches in a row, a script page with a few lines, a pencil resting on top, warm desk lamp light |
+
+## Day 6 — Meet Higgsfield
+
+| File | Where it shows | Generation prompt |
+|---|---|---|
+| `l6-higgsfield.jpg` | Opening question | A sleek dashboard interface showing several glowing video-model option tiles side by side, a cursor comparing them, futuristic clean UI mood |
+
+## Day 7 — Meet Google Flow
+
+| File | Where it shows | Generation prompt |
+|---|---|---|
+| `l6-flow.jpg` | Opening question | A single glowing reference portrait connected by thin light lines to several film-strip frames showing the same character in different shots, consistency and connection mood |
+
+---
+
 **Want different framing, extra slots, or `.jpg`/`.webp` instead?** Ask Claude
 to update the lesson SQL and this list together so filenames stay in sync.
