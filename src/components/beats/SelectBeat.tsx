@@ -6,6 +6,9 @@ import type { SelectBeat as SelectBeatConfig } from "@/lib/beats";
 interface Props {
   beat: SelectBeatConfig;
   onSolved: () => void;
+  /** Fires on each incorrect tap — feeds the tutor's trigger rule (PRD §F3:
+   * wrong_attempts >= N). Optional so the beat still works standalone. */
+  onWrongAttempt?: () => void;
 }
 
 /**
@@ -13,7 +16,7 @@ interface Props {
  * Feedback reveals *why*, not just right/wrong. A wrong tap explains the miss
  * kindly and lets the student try again; the right tap unlocks Continue.
  */
-export default function SelectBeat({ beat, onSolved }: Props) {
+export default function SelectBeat({ beat, onSolved, onWrongAttempt }: Props) {
   const [picked, setPicked] = useState<string | null>(null);
   const [solved, setSolved] = useState(false);
 
@@ -23,6 +26,8 @@ export default function SelectBeat({ beat, onSolved }: Props) {
     if (id === beat.correct) {
       setSolved(true);
       window.setTimeout(onSolved, 450);
+    } else {
+      onWrongAttempt?.();
     }
   };
 

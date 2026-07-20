@@ -83,6 +83,12 @@ export default function LessonPlayer({
   const currentDone = done[index];
   const isLast = index === total - 1;
 
+  // Tutor trigger — wrong_attempts >= 2 (PRD §F3). A monotonic tick that
+  // TutorButton (remounted fresh per beat via key={beat.id}) diffs against
+  // its own mount-time baseline — no manual per-beat reset needed here.
+  const [wrongAttemptTick, setWrongAttemptTick] = useState(0);
+  const handleWrongAttempt = () => setWrongAttemptTick((t) => t + 1);
+
   const markSolved = () => {
     if (done[index]) return;
     const next = [...done];
@@ -137,10 +143,18 @@ export default function LessonPlayer({
             <ReadBeat beat={beat} onSolved={markSolved} />
           )}
           {beat.type === "drag_sort" && (
-            <DragSortBeat beat={beat} onSolved={markSolved} />
+            <DragSortBeat
+              beat={beat}
+              onSolved={markSolved}
+              onWrongAttempt={handleWrongAttempt}
+            />
           )}
           {beat.type === "select" && (
-            <SelectBeat beat={beat} onSolved={markSolved} />
+            <SelectBeat
+              beat={beat}
+              onSolved={markSolved}
+              onWrongAttempt={handleWrongAttempt}
+            />
           )}
           {beat.type === "lever" && (
             <LeverBeat beat={beat} onSolved={markSolved} />
@@ -149,7 +163,11 @@ export default function LessonPlayer({
             <WatchBeat beat={beat} onSolved={markSolved} />
           )}
           {beat.type === "type_answer" && (
-            <TypeAnswerBeat beat={beat} onSolved={markSolved} />
+            <TypeAnswerBeat
+              beat={beat}
+              onSolved={markSolved}
+              onWrongAttempt={handleWrongAttempt}
+            />
           )}
         </div>
       </section>
@@ -184,7 +202,15 @@ export default function LessonPlayer({
 
       <div className="pointer-events-none fixed inset-x-0 bottom-24 z-40 mx-auto flex w-full max-w-md justify-end px-5">
         <div className="pointer-events-auto">
-          <TutorButton beatPrompt={beat.prompt} />
+          <TutorButton
+            key={beat.id}
+            lessonId={lesson.id}
+            lessonTitle={lesson.title}
+            track={lesson.track}
+            beat={beat}
+            wrongAttemptTick={wrongAttemptTick}
+            solved={currentDone}
+          />
         </div>
       </div>
     </main>

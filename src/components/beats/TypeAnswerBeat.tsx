@@ -6,6 +6,8 @@ import type { TypeAnswerBeat as TypeAnswerBeatConfig } from "@/lib/beats";
 interface Props {
   beat: TypeAnswerBeatConfig;
   onSolved: () => void;
+  /** Fires on each miss — feeds the tutor's trigger rule. */
+  onWrongAttempt?: () => void;
 }
 
 type Status = "idle" | "missed" | "revealed" | "solved";
@@ -17,7 +19,7 @@ type Status = "idle" | "missed" | "revealed" | "solved";
  * miss; second miss reveals a model answer and lets the student continue —
  * never a red-X wall.
  */
-export default function TypeAnswerBeat({ beat, onSolved }: Props) {
+export default function TypeAnswerBeat({ beat, onSolved, onWrongAttempt }: Props) {
   const [answer, setAnswer] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [misses, setMisses] = useState(0);
@@ -38,6 +40,7 @@ export default function TypeAnswerBeat({ beat, onSolved }: Props) {
     }
     const next = misses + 1;
     setMisses(next);
+    onWrongAttempt?.();
     if (next >= 2) {
       // Show a model answer and let them move on — comparing is the lesson.
       setStatus("revealed");

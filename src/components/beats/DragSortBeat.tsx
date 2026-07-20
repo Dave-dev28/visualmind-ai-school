@@ -8,6 +8,8 @@ type Assignments = Record<string, string | null>;
 interface Props {
   beat: DragSortBeatConfig;
   onSolved: () => void;
+  /** Fires on each wrong-bucket drop — feeds the tutor's trigger rule. */
+  onWrongAttempt?: () => void;
 }
 
 /**
@@ -21,7 +23,7 @@ interface Props {
  * Feedback: correct drop snaps in; wrong drop shows kindly, then floats back.
  * Tap-to-select is the always-available fallback for touch.
  */
-export default function DragSortBeat({ beat, onSolved }: Props) {
+export default function DragSortBeat({ beat, onSolved, onWrongAttempt }: Props) {
   const [assign, setAssign] = useState<Assignments>(() =>
     Object.fromEntries(beat.items.map((i) => [i.id, null])),
   );
@@ -48,6 +50,7 @@ export default function DragSortBeat({ beat, onSolved }: Props) {
     if (!isCorrect) {
       setAssign((a) => ({ ...a, [itemId]: bucketId }));
       setHint("Almost — that one belongs on a different shelf. Try again.");
+      onWrongAttempt?.();
       window.setTimeout(
         () => setAssign((a) => ({ ...a, [itemId]: null })),
         550,
