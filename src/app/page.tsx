@@ -225,6 +225,10 @@ function MapRow({
       style={{
         background: active ? "rgba(255,106,61,0.12)" : "var(--surface)",
         outline: active ? "2px solid var(--accent)" : "none",
+        // Finished classes fade back — progress is visible at a glance and
+        // the eye lands on the highlighted next class. Still tappable to replay.
+        opacity: done ? 0.45 : 1,
+        filter: done ? "saturate(0.6)" : "none",
       }}
     >
       <span
@@ -237,9 +241,17 @@ function MapRow({
         {done ? "✓" : lesson.day}
       </span>
       <span className="min-w-0">
-        <span className="block truncate text-sm font-700">{lesson.title}</span>
+        <span
+          className="block truncate text-sm font-700"
+          style={{
+            textDecoration: done ? "line-through" : "none",
+            textDecorationColor: "var(--text-muted)",
+          }}
+        >
+          {lesson.title}
+        </span>
         <span className="block text-xs text-[var(--text-muted)]">
-          {lesson.track} · {lesson.minutes} min
+          {done ? "Done · tap to replay" : `${lesson.track} · ${lesson.minutes} min`}
         </span>
       </span>
     </Link>

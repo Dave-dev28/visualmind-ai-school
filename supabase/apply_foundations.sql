@@ -47,8 +47,8 @@ $json${
       "image": { "src": "/media/l1-ai-around-you.png", "alt": "A phone surrounded by everyday AI features", "caption": "AI is already in your pocket." },
       "body": [
         "Most software works like a recipe: a programmer types exact rules, and the computer follows them step by step. A calculator, an alarm clock, a torchlight app — all recipes. They never change unless someone rewrites them.",
-        "AI is different. Instead of typing rules, we show the computer thousands of examples and let it find the patterns by itself. Nobody wrote a rule for every scam message in the world — your spam filter studied millions of them and learned what a scam smells like.",
-        "That's why AI can handle things nobody planned for: a new scam style, your face in bad light, your voice in a noisy bus. It learned the pattern, not a fixed list."
+        "AI is different. Instead of typing rules, we show the computer thousands of examples and let it find the patterns by itself. Nobody typed a rule saying which song you'd love next — your music app studied millions of listening histories and learned your taste.",
+        "That's why AI can handle things nobody planned for: a brand-new song released today, your face in bad light, your voice in a noisy bus. It learned the pattern, not a fixed list."
       ],
       "keyPoints": [
         "Normal software follows rules a programmer typed.",
@@ -73,8 +73,8 @@ $json${
       "title": "Rules break. Learning bends.",
       "image": { "src": "/media/l1-learns-vs-rules.png", "alt": "A robot studying photos versus gears following a checklist", "caption": "Recipe-followers vs pattern-learners." },
       "body": [
-        "Why not just write better rules? Because the world keeps changing. The day scammers invent a new trick, a rule-based filter is blind — someone must notice, write a new rule, and update the app. Slow.",
-        "A learning system just needs new examples. Feed it the new scams, and it adjusts itself. That's the deep reason AI took over: the world moves too fast for hand-written rules.",
+        "Why not just write better rules? Because the world keeps changing. New songs drop every Friday, new slang appears every month, new faces walk into every photo. A rule-based app is blind to all of it until someone writes new rules and ships an update. Slow.",
+        "A learning system just needs new examples. Feed it this week's music and it adjusts itself — no programmer needed. That's the deep reason AI took over: the world moves too fast for hand-written rules.",
         "So when you see an app do something clever with messy real-life input — faces, voices, traffic, handwriting — ask: did someone type rules for this, or did it learn? If it handles surprises, it learned."
       ],
       "keyPoints": [
@@ -84,7 +84,7 @@ $json${
     { "id": "b5", "type": "drag_sort",
       "prompt": "Check yourself: which ones learn, and which just follow fixed rules?",
       "items": [
-        { "id": "i1", "label": "Spam filter that catches new scam styles" },
+        { "id": "i1", "label": "Music app that learns the songs you love" },
         { "id": "i2", "label": "Calculator app" },
         { "id": "i3", "label": "Photo app that finds all pictures of your face" },
         { "id": "i4", "label": "Alarm clock" },

@@ -164,15 +164,23 @@ export default function DragSortBeat({ beat, onSolved }: Props) {
         {beat.buckets.map((bucket) => {
           const placed = beat.items.filter((i) => assign[i.id] === bucket.id);
           const isHover = hoverBucket === bucket.id;
+          // A card is tap-selected: glow the shelves so the next tap is obvious.
+          const isGuiding = selected !== null && !draggingId;
           return (
             <button
               key={bucket.id}
               data-bucket={bucket.id}
               onClick={() => selected && place(selected, bucket.id)}
-              className="flex min-h-40 flex-col rounded-[var(--radius-md)] border-2 border-dashed p-2.5 text-left transition-[border-color,background-color,transform] duration-150"
+              className={`flex min-h-40 flex-col rounded-[var(--radius-md)] border-2 border-dashed p-2.5 text-left transition-[border-color,background-color,transform] duration-150 ${
+                isGuiding && !isHover ? "animate-guide" : ""
+              }`}
               style={{
                 borderColor: isHover ? "var(--accent)" : "var(--border)",
-                background: isHover ? "rgba(255,106,61,0.12)" : "var(--surface)",
+                background: isHover
+                  ? "rgba(255,106,61,0.12)"
+                  : isGuiding
+                    ? "rgba(255,106,61,0.05)"
+                    : "var(--surface)",
                 transform: isHover ? "scale(1.04)" : "scale(1)",
               }}
             >
@@ -225,6 +233,9 @@ export default function DragSortBeat({ beat, onSolved }: Props) {
                   // Source stays in the layout but hides while its ghost flies.
                   opacity: isDragging ? 0.25 : 1,
                   WebkitTouchCallout: "none",
+                  // Inline insurance: without this, mobile browsers hijack the
+                  // gesture for scrolling and the drag dies silently.
+                  touchAction: "none",
                 }}
               >
                 {item.label}

@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import type { Lesson } from "@/lib/beats";
 
 interface Props {
@@ -14,6 +14,7 @@ interface Props {
  * tomorrow tease — and deliberately NO score (scores stay hidden until Friday).
  */
 export default function RecapScreen({ lesson, verbs }: Props) {
+  const router = useRouter();
   return (
     <div className="animate-pop flex h-full flex-col">
       <div className="animate-celebrate mx-auto grid h-20 w-20 place-items-center rounded-full text-4xl"
@@ -54,13 +55,19 @@ export default function RecapScreen({ lesson, verbs }: Props) {
         </div>
       )}
 
-      <Link
-        href="/"
-        className="mt-auto block rounded-[var(--radius-pill)] py-4 text-center text-lg font-800 active:scale-[0.99]"
+      <button
+        onClick={() => {
+          // refresh() invalidates the client router cache so home re-reads
+          // progress from the DB — the finished class dims, the next one
+          // lights up. A plain <Link> could show a stale snapshot.
+          router.refresh();
+          router.push("/");
+        }}
+        className="mt-auto block w-full rounded-[var(--radius-pill)] py-4 text-center text-lg font-800 active:scale-[0.99]"
         style={{ background: "var(--accent)", color: "var(--accent-ink)" }}
       >
         Back to home
-      </Link>
+      </button>
     </div>
   );
 }

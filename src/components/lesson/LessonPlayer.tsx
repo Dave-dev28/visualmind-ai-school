@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import type { Beat, Lesson } from "@/lib/beats";
 import { createClient } from "@/lib/supabase/client";
@@ -54,23 +54,22 @@ export default function LessonPlayer({
     return firstUndone === -1 ? 0 : firstUndone;
   });
   const [showRecap, setShowRecap] = useState(false);
-  const userId = useRef<string | null>(null);
 
-  useEffect(() => {
-    supabase.auth.getUser().then(({ data }) => {
-      userId.current = data.user?.id ?? null;
-    });
-  }, [supabase]);
+  const saveProgress = async (doneFlags: boolean[], completed: boolean) => {
+    // Resolve the user at save time from the local session (no network,
+    // always available once signed in) — progress must never silently drop.
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
+    const uid = session?.user.id;
+    if (!uid) return;
 
-  const saveProgress = (doneFlags: boolean[], completed: boolean) => {
-    if (!userId.current) return;
     const beatsDone = lesson.beats
       .filter((b, i) => doneFlags[i])
       .map((b) => b.id);
-    // Fire-and-forget upsert; UI never waits on the network.
-    void supabase.from("lesson_progress").upsert(
+    await supabase.from("lesson_progress").upsert(
       {
-        user_id: userId.current,
+        user_id: uid,
         lesson_id: lesson.id,
         beats_done: beatsDone,
         completed,
@@ -84,19 +83,19 @@ export default function LessonPlayer({
   const currentDone = done[index];
   const isLast = index === total - 1;
 
-  const markSolved = () =>
-    setDone((d) => {
-      if (d[index]) return d;
-      const next = [...d];
-      next[index] = true;
-      saveProgress(next, next.every(Boolean));
-      return next;
-    });
+  const markSolved = () => {
+    if (done[index]) return;
+    const next = [...done];
+    next[index] = true;
+    setDone(next);
+    // Fire-and-forget: UI never waits, but the save itself is reliable.
+    void saveProgress(next, next.every(Boolean));
+  };
 
   const advance = () => {
     if (isLast) {
       setShowRecap(true);
-      saveProgress(done, true);
+      void saveProgress(done, true);
     } else {
       setIndex((i) => i + 1);
     }
