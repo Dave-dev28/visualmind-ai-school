@@ -10,6 +10,8 @@ import { NextResponse, type NextRequest } from "next/server";
  *  - Signed in but no claimed seat → forced to /seat (access-code gate),
  *    except when already there or signing out.
  *  - Signed in + seat claimed → full app.
+ *  - /admin is exempt from the seat gate (an admin account may never redeem a
+ *    student seat); the page itself checks the is_admin flag server-side.
  */
 export async function updateSession(request: NextRequest) {
   let response = NextResponse.next({ request });
@@ -44,6 +46,7 @@ export async function updateSession(request: NextRequest) {
   const path = request.nextUrl.pathname;
   const isAuthPage = path === "/login" || path === "/signup";
   const isSeatPage = path === "/seat";
+  const isAdminPage = path === "/admin" || path.startsWith("/admin/");
 
   if (!user && !isAuthPage) {
     return redirectTo(request, "/login");
@@ -53,7 +56,7 @@ export async function updateSession(request: NextRequest) {
     return redirectTo(request, "/");
   }
 
-  if (user && !isAuthPage) {
+  if (user && !isAuthPage && !isAdminPage) {
     // Check whether this user has claimed a seat yet.
     const { data: profile } = await supabase
       .from("profiles")
