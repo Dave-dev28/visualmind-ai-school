@@ -44,7 +44,7 @@ $json${
     { "id": "b1", "type": "read",
       "prompt": "First, the idea.",
       "title": "AI is not magic — it's learning from examples",
-      "image": { "src": "/media/l1-ai-around-you.png", "alt": "A phone surrounded by everyday AI features", "caption": "AI is already in your pocket." },
+      "image": { "src": "/media/l1-ai-around-you.jpg", "alt": "A phone surrounded by everyday AI features", "caption": "AI is already in your pocket." },
       "body": [
         "Most software works like a recipe: a programmer types exact rules, and the computer follows them step by step. A calculator, an alarm clock, a torchlight app — all recipes. They never change unless someone rewrites them.",
         "AI is different. Instead of typing rules, we show the computer thousands of examples and let it find the patterns by itself. Nobody typed a rule saying which song you'd love next — your music app studied millions of listening histories and learned your taste.",
@@ -71,7 +71,7 @@ $json${
     { "id": "b4", "type": "read",
       "prompt": "One more piece of theory before you sort.",
       "title": "Rules break. Learning bends.",
-      "image": { "src": "/media/l1-learns-vs-rules.png", "alt": "A robot studying photos versus gears following a checklist", "caption": "Recipe-followers vs pattern-learners." },
+      "image": { "src": "/media/l1-learns-vs-rules.jpg", "alt": "A robot studying photos versus gears following a checklist", "caption": "Recipe-followers vs pattern-learners." },
       "body": [
         "Why not just write better rules? Because the world keeps changing. New songs drop every Friday, new slang appears every month, new faces walk into every photo. A rule-based app is blind to all of it until someone writes new rules and ships an update. Slow.",
         "A learning system just needs new examples. Feed it this week's music and it adjusts itself — no programmer needed. That's the deep reason AI took over: the world moves too fast for hand-written rules.",
@@ -100,10 +100,10 @@ $json${
       "prompt": "Theory said: AI learns from examples. So what happens as you give it MORE? Pull and see.",
       "minLabel": "10 photos", "maxLabel": "Millions",
       "states": [
-        { "label": "10 photos", "description": "Confused. It unlocks for your brother too.", "image": "/media/l1-faces-10.png" },
-        { "label": "1,000 photos", "description": "Sometimes right — struggles in bad light.", "image": "/media/l1-faces-1k.png" },
-        { "label": "100,000 photos", "description": "Right most of the time. This is getting useful.", "image": "/media/l1-faces-100k.png" },
-        { "label": "Millions of photos", "description": "Sharp — day, night, new haircut. But even now, never perfect. More examples = better AI.", "image": "/media/l1-faces-millions.png" }
+        { "label": "10 photos", "description": "Confused. It unlocks for your brother too.", "image": "/media/l1-faces-10.jpg" },
+        { "label": "1,000 photos", "description": "Sometimes right — struggles in bad light.", "image": "/media/l1-faces-1k.jpg" },
+        { "label": "100,000 photos", "description": "Right most of the time. This is getting useful.", "image": "/media/l1-faces-100k.jpg" },
+        { "label": "Millions of photos", "description": "Sharp — day, night, new haircut. But even now, never perfect. More examples = better AI.", "image": "/media/l1-faces-millions.jpg" }
       ],
       "target": 3 },
     { "id": "b7", "type": "type_answer",
@@ -131,7 +131,7 @@ $json${
     { "id": "b1", "type": "read",
       "prompt": "First, the story.",
       "title": "A 70-year-old dream",
-      "image": { "src": "/media/l2-turing.png", "alt": "Alan Turing beside a 1950s room-sized computer", "caption": "1950: Alan Turing asks the question." },
+      "image": { "src": "/media/l2-turing.jpg", "alt": "Alan Turing beside a 1950s room-sized computer", "caption": "1950: Alan Turing asks the question." },
       "body": [
         "AI feels brand new, but the dream is older than your parents. In 1950, a British mathematician named Alan Turing asked a famous question: can machines think? He even proposed a test — if you chat with something and can't tell it's a machine, does the difference matter?",
         "For seventy years, brilliant people chased that dream — and mostly hit a wall. The ideas were good, but the computers of their time were far too weak, like designing a jet engine in a world that only has bicycle parts.",
@@ -149,7 +149,7 @@ $json${
     { "id": "b3", "type": "read",
       "prompt": "Let's organize what you just watched.",
       "title": "The three eras of AI",
-      "image": { "src": "/media/l2-timeline.png", "alt": "A timeline in three eras: the spark, the struggle, the boom", "caption": "The spark → the struggle → the boom." },
+      "image": { "src": "/media/l2-timeline.jpg", "alt": "A timeline in three eras: the spark, the struggle, the boom", "caption": "The spark → the struggle → the boom." },
       "body": [
         "The spark (1950s–60s): Turing's question, the first excited researchers, and ELIZA — the first chatbot, so simple it just reflected your words back, yet people poured their hearts out to it.",
         "The struggle (1970s–90s): promises kept outrunning reality, so funding collapsed — twice. These freezes are called the AI winters. Still, there were flashes of what was coming: in 1997, IBM's Deep Blue beat the world chess champion.",
@@ -184,10 +184,10 @@ $json${
       "prompt": "Pull through the decades and watch what computers could handle.",
       "minLabel": "1950s", "maxLabel": "2020s",
       "states": [
-        { "label": "1950s — room-sized computer", "description": "Can play tic-tac-toe. That's about it.", "image": "/media/l2-1950s.png" },
-        { "label": "1990s — desktop PC", "description": "Strong enough to beat a chess champion — one narrow skill.", "image": "/media/l2-1990s.png" },
-        { "label": "2010s — GPU clusters", "description": "Recognizes faces, photos and speech. AI quietly enters your phone.", "image": "/media/l2-2010s.png" },
-        { "label": "2020s — data centres", "description": "Writes, chats, makes images and video. The 70-year-old dream finally has an engine.", "image": "/media/l2-2020s.png" }
+        { "label": "1950s — room-sized computer", "description": "Can play tic-tac-toe. That's about it.", "image": "/media/l2-1950s.jpg" },
+        { "label": "1990s — desktop PC", "description": "Strong enough to beat a chess champion — one narrow skill.", "image": "/media/l2-1990s.jpg" },
+        { "label": "2010s — GPU clusters", "description": "Recognizes faces, photos and speech. AI quietly enters your phone.", "image": "/media/l2-2010s.jpg" },
+        { "label": "2020s — data centres", "description": "Writes, chats, makes images and video. The 70-year-old dream finally has an engine.", "image": "/media/l2-2020s.jpg" }
       ],
       "target": 3 },
     { "id": "b7", "type": "type_answer",
@@ -215,7 +215,7 @@ $json${
     { "id": "b1", "type": "read",
       "prompt": "First, the idea.",
       "title": "Machines learn like students, not like calculators",
-      "image": { "src": "/media/l3-training-loop.png", "alt": "A loop: examples in, guess, score, adjust, repeat", "caption": "The training loop — round and round until it's good." },
+      "image": { "src": "/media/l3-training-loop.jpg", "alt": "A loop: examples in, guess, score, adjust, repeat", "caption": "The training loop — round and round until it's good." },
       "body": [
         "Teaching a machine looks a lot like teaching a person. You need three ingredients: plenty of examples, honest feedback on mistakes, and many rounds of practice.",
         "Here's the loop. Show the machine an example — say, a photo of a banknote. It guesses: real or fake. You score the guess. Every wrong answer nudges its internal settings a tiny bit. Then the next example, and the next — thousands of rounds.",
@@ -228,7 +228,7 @@ $json${
       ] },
     { "id": "b2", "type": "select",
       "prompt": "Apply it.",
-      "image": { "src": "/media/l3-naira-notes.png", "alt": "Real and fake naira notes side by side under a magnifier", "caption": "Your mission: teach a machine to tell these apart." },
+      "image": { "src": "/media/l3-naira-notes.jpg", "alt": "Real and fake naira notes side by side under a magnifier", "caption": "Your mission: teach a machine to tell these apart." },
       "question": "You want AI to spot fake naira notes. What do you give it FIRST?",
       "options": [
         { "id": "o1", "label": "Thousands of real and fake notes, each labelled", "explain": "Yes — examples first, always. The machine studies them and finds the differences itself. No examples, no learning." },
@@ -271,10 +271,10 @@ $json${
       "prompt": "Watch the trap happen: pull the lever to train the fake-note spotter more and more.",
       "minLabel": "No training", "maxLabel": "Over-trained",
       "states": [
-        { "label": "0 rounds", "description": "Pure guessing. 50/50 — a coin toss.", "image": "/media/l3-train-0.png" },
-        { "label": "Some training", "description": "Rough guesses. Catches obvious fakes only.", "image": "/media/l3-train-some.png" },
-        { "label": "Well trained", "description": "Solid. It learned the general patterns — catches fakes it has never seen. This is the goal.", "image": "/media/l3-train-good.png" },
-        { "label": "Over-trained on few examples", "description": "The trap! It memorized the training notes — new fakes walk right past it.", "image": "/media/l3-train-overfit.png" }
+        { "label": "0 rounds", "description": "Pure guessing. 50/50 — a coin toss.", "image": "/media/l3-train-0.jpg" },
+        { "label": "Some training", "description": "Rough guesses. Catches obvious fakes only.", "image": "/media/l3-train-some.jpg" },
+        { "label": "Well trained", "description": "Solid. It learned the general patterns — catches fakes it has never seen. This is the goal.", "image": "/media/l3-train-good.jpg" },
+        { "label": "Over-trained on few examples", "description": "The trap! It memorized the training notes — new fakes walk right past it.", "image": "/media/l3-train-overfit.jpg" }
       ],
       "target": 2 },
     { "id": "b7", "type": "type_answer",
@@ -303,7 +303,7 @@ $json${
     { "id": "b1", "type": "read",
       "prompt": "First, the trick.",
       "title": "The trick behind ChatGPT: predict the next word",
-      "image": { "src": "/media/l4-next-word.png", "alt": "A sentence being continued word by word, with candidate next words glowing", "caption": "One word at a time. Really." },
+      "image": { "src": "/media/l4-next-word.jpg", "alt": "A sentence being continued word by word, with candidate next words glowing", "caption": "One word at a time. Really." },
       "body": [
         "When ChatGPT writes you a beautiful paragraph, it's doing something surprisingly simple: predicting the next word. Then the next. Then the next — very fast, thousands of times, until an answer forms.",
         "How can word-guessing be so smart? Scale. An LLM — Large Language Model — was trained on mountains of human writing: books, articles, conversations, code. To predict the next word well in ALL of that, it had to absorb grammar, facts, styles, even reasoning patterns.",
@@ -344,15 +344,15 @@ $json${
       "prompt": "Try the creativity dial yourself — same request, different temperature.",
       "minLabel": "Safe", "maxLabel": "Wild",
       "states": [
-        { "label": "Zero", "description": "\"Lagos is a city in Nigeria.\" Correct, robotic, same answer every time.", "image": "/media/l4-temp-0.png" },
-        { "label": "Low", "description": "Clear and focused. Great for facts, code and instructions.", "image": "/media/l4-temp-low.png" },
-        { "label": "Medium", "description": "Natural, with some flair. Great for stories, captions and ideas — the sweet spot for creative work.", "image": "/media/l4-temp-med.png" },
-        { "label": "Maximum", "description": "\"Lagos, that golden octopus of dreams…\" Fun, but it starts inventing things. Wild isn't always wise.", "image": "/media/l4-temp-max.png" }
+        { "label": "Zero", "description": "\"Lagos is a city in Nigeria.\" Correct, robotic, same answer every time.", "image": "/media/l4-temp-0.jpg" },
+        { "label": "Low", "description": "Clear and focused. Great for facts, code and instructions.", "image": "/media/l4-temp-low.jpg" },
+        { "label": "Medium", "description": "Natural, with some flair. Great for stories, captions and ideas — the sweet spot for creative work.", "image": "/media/l4-temp-med.jpg" },
+        { "label": "Maximum", "description": "\"Lagos, that golden octopus of dreams…\" Fun, but it starts inventing things. Wild isn't always wise.", "image": "/media/l4-temp-max.jpg" }
       ],
       "target": 2 },
     { "id": "b6", "type": "drag_sort",
       "prompt": "You read that prompting = briefing. Sort these habits.",
-      "image": { "src": "/media/l4-prompting.png", "alt": "A person giving a clear brief versus a person shrugging vaguely", "caption": "Brief the AI like you'd brief a person." },
+      "image": { "src": "/media/l4-prompting.jpg", "alt": "A person giving a clear brief versus a person shrugging vaguely", "caption": "Brief the AI like you'd brief a person." },
       "items": [
         { "id": "i1", "label": "Say who the answer is for" },
         { "id": "i2", "label": "Show an example of what you want" },
@@ -368,7 +368,7 @@ $json${
       "correct": { "i1": "strong", "i2": "strong", "i3": "strong", "i4": "weak", "i5": "weak", "i6": "weak" } },
     { "id": "b7", "type": "select",
       "prompt": "And the honesty problem — make sure it stuck.",
-      "image": { "src": "/media/l4-confident-wrong.png", "alt": "A cheerful robot confidently presenting a nonsense chart", "caption": "Confidence is not correctness." },
+      "image": { "src": "/media/l4-confident-wrong.jpg", "alt": "A cheerful robot confidently presenting a nonsense chart", "caption": "Confidence is not correctness." },
       "question": "Why can an LLM confidently tell you something that's completely wrong?",
       "options": [
         { "id": "o1", "label": "It predicts likely-sounding words — it doesn't check facts", "explain": "This is the key insight. \"Sounds right\" and \"is right\" are different things. Enjoy the power, verify important facts — that's the pro habit." },
@@ -401,7 +401,7 @@ $json${
     { "id": "b1", "type": "read",
       "prompt": "You know what AI is. Now — what can it make?",
       "title": "The toolbox: words, pictures, video, voice, software",
-      "image": { "src": "/media/l5-toolbox.png", "alt": "An open toolbox glowing with icons for words, images, video, voice and code", "caption": "Every tool in here is one you can learn to direct." },
+      "image": { "src": "/media/l5-toolbox.jpg", "alt": "An open toolbox glowing with icons for words, images, video, voice and code", "caption": "Every tool in here is one you can learn to direct." },
       "body": [
         "Today's AI splits into a few big tool families. Chatbots (LLMs) handle words: captions, emails, scripts, summaries, ideas. Image and video generators turn descriptions into pictures and moving clips. Voice AI clones and creates speech. And AI coding tools turn plain English into working software.",
         "Here's what matters for you: real people earn real money with every one of these, today — social media managers, ad creators, app builders, video makers. The tools are not the hard part anymore. Knowing how to direct them is.",
@@ -445,10 +445,10 @@ $json${
       "prompt": "See the difference — pull across the three ways people work with AI.",
       "minLabel": "No AI", "maxLabel": "Full autopilot",
       "states": [
-        { "label": "Everything by hand", "description": "Honest work, but slow — and you're competing with people who have an engine.", "image": "/media/l5-lever-diy.png" },
-        { "label": "AI as your assistant", "description": "You think, it drafts. Faster, but you're still doing most of the lifting.", "image": "/media/l5-lever-assist.png" },
-        { "label": "You direct, AI produces", "description": "The sweet spot. Taste + judgment from you, speed from AI. This is what this school trains.", "image": "/media/l5-lever-director.png" },
-        { "label": "Full autopilot", "description": "AI does everything, you just post it. Fast — but generic, and you learned nothing anyone would pay for.", "image": "/media/l5-lever-autopilot.png" }
+        { "label": "Everything by hand", "description": "Honest work, but slow — and you're competing with people who have an engine.", "image": "/media/l5-lever-diy.jpg" },
+        { "label": "AI as your assistant", "description": "You think, it drafts. Faster, but you're still doing most of the lifting.", "image": "/media/l5-lever-assist.jpg" },
+        { "label": "You direct, AI produces", "description": "The sweet spot. Taste + judgment from you, speed from AI. This is what this school trains.", "image": "/media/l5-lever-director.jpg" },
+        { "label": "Full autopilot", "description": "AI does everything, you just post it. Fast — but generic, and you learned nothing anyone would pay for.", "image": "/media/l5-lever-autopilot.jpg" }
       ],
       "target": 2 },
     { "id": "b5", "type": "select",
