@@ -391,6 +391,29 @@ $json${
         "Comparing models helps you pick the best result for your specific shot.",
         "Edit tools let you fix small things without regenerating from scratch."
       ] },
+    { "id": "b1b", "type": "read",
+      "prompt": "The single most important habit before you touch any platform.",
+      "title": "Start from an image, then animate it",
+      "body": [
+        "Every AI video tool gives you two starting points. Text-to-video: type a prompt, get a moving clip straight away. Image-to-video: first generate (or pick) ONE still image, check it looks exactly right, THEN tell the AI how that exact image should move.",
+        "Text-to-video is fast, but you're gambling — the AI decides the framing, the character's face, the composition, all in one step, and it can shift slightly every time you regenerate. You spend credits without knowing what you'll get.",
+        "Image-to-video flips that. You already know how to build a strong still — shot size (Day 1), angle (Day 2), lighting (Day 4) — everything you've learned so far is really \"how to compose one great frame.\" Nail that frame first, confirm it's right, THEN animate it with movement (Day 3) on top. You're directing a photo into becoming a scene, one confirmed decision at a time.",
+        "This is also why planning (Day 5) matters so much: a shot list is really a list of stills to generate first, in order, before any of them get animated."
+      ],
+      "keyPoints": [
+        "Text-to-video = fast, but you don't control the exact frame.",
+        "Image-to-video = generate the still first, confirm it, then animate it — far more control.",
+        "This is the default workflow most working AI creators use, on Higgsfield and elsewhere."
+      ] },
+    { "id": "b1c", "type": "select",
+      "prompt": "Use the idea before you watch it in action.",
+      "question": "You need your character's face to look exactly right — same face the whole scene. Which starting approach gives you the most control over that?",
+      "options": [
+        { "id": "o1", "label": "Text-to-video — type a prompt and generate the clip directly", "explain": "Text-to-video decides the face and framing for you in one step — you won't know exactly what you'll get, and it can shift between generations." },
+        { "id": "o2", "label": "Image-to-video — generate a still image first, confirm it looks right, then animate it", "explain": "Exactly — you lock in the exact face and frame as a still first, THEN animate it. No surprises." },
+        { "id": "o3", "label": "Generate ten clips and pick the best one", "explain": "That burns ten times the credits chasing luck. Locking the frame first with image-to-video gets you there in one confirmed step." }
+      ],
+      "correct": "o2" },
     { "id": "b2", "type": "watch",
       "prompt": "Watch: using Higgsfield as a total beginner (5 min).",
       "videoId": "Pjw8nnxHo5I", "end": 300,
@@ -444,7 +467,7 @@ $json${
       "title": "The hardest problem in AI video: staying consistent",
       "image": { "src": "/media/l6-flow.jpg", "alt": "A character reference image connected to multiple generated scene shots", "caption": "Same face, same outfit, every shot — that's an “ingredient.”" },
       "body": [
-        "Google Flow is Google's AI filmmaking tool, built around Veo. Its biggest idea is something it calls “ingredients”: a consistent character, object, or style you create once — from a photo or a text prompt — and reuse across every shot in your story.",
+        "Google Flow is Google's AI filmmaking tool, built around Veo. Its biggest idea is something it calls “ingredients”: a consistent character, object, or style you create once — from a photo or a text prompt — and reuse across every shot in your story. This is the image-first habit from yesterday, taken further: instead of locking one still, you lock a reusable reference and animate multiple shots from it.",
         "Without an ingredient, every new shot you generate might give your character a slightly different face, outfit, or hair. With one, Flow keeps them recognizable from your wide shot all the way to your close-up — which is exactly what a real short film needs.",
         "Flow also has a Scene Builder for stitching multiple shots into one sequence, and lets you type camera instructions directly — “low angle,” “slow push-in,” “tracking shot” — using the exact vocabulary you've already learned this week."
       ],
