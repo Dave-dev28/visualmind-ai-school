@@ -468,7 +468,102 @@ $json${
       "hint": "",
       "sampleAnswer": "" }
   ],
-  "tomorrow": "You finished the basics! Next — choose your path. 🎬💻"
+  "tomorrow": "Day 6 — The one mindset shift that changes everything you make with AI."
+}$json$::jsonb, true)
+on conflict (id) do update set track = excluded.track, day = excluded.day,
+  title = excluded.title, minutes = excluded.minutes,
+  content = excluded.content, published = excluded.published;
+
+-- ─── Lesson 6 — You are the director (mindset, added 2026-07-21) ───────────
+-- Placed after the basics, before choose-path — this mindset applies equally
+-- whichever track a student picks next. Reuses l5-lever-director.jpg (Day 5's
+-- "director in the chair" motif) deliberately, twice, to lock in one image
+-- with one idea across the whole Foundations module.
+insert into public.lessons (id, track, day, title, minutes, content, published)
+values ('basics-6', 'Foundations', 6, 'You are the director', 13,
+$json${
+  "beats": [
+    { "id": "b1", "type": "read",
+      "prompt": "Before you touch any AI tool — read this twice.",
+      "title": "AI didn't remove the need for imagination. It raised its price.",
+      "image": { "src": "/media/l5-lever-director.jpg", "alt": "A confident director in a chair pointing while an AI crew works exactly to their vision", "caption": "This is the relationship. Remember this picture." },
+      "body": [
+        "Here's a mindset most beginners get backwards: they think AI is the creative one, and they're just the person typing. Flip that around completely. You are the thinker. AI is the executor. A film director never holds the camera, never acts, never edits the footage — yet the film is unmistakably theirs, because the vision was theirs. That's exactly your relationship with AI, starting today.",
+        "Before AI, having a great idea wasn't enough. You also needed years of technical skill to make it real — to actually operate a camera, write code, edit footage frame by frame. That technical wall kept most people's best ideas locked inside their heads forever. AI just knocked that wall down for everyone, all at once.",
+        "So what's left? The one skill that was always the rarest, and now matters more than ever: the ability to see something clearly in your mind before it exists anywhere else. That is the entire subject of this class."
+      ],
+      "keyPoints": [
+        "AI executes. You direct. The vision is always yours.",
+        "The technical wall is gone — the vision wall is the only one left standing.",
+        "Your job now is to see clearly, not to operate machinery."
+      ] },
+    { "id": "b2", "type": "select",
+      "prompt": "Use the idea immediately.",
+      "question": "Two students want a video of a woman discovering her shop finally has customers. One types \"make a happy video for my shop.\" The other closes her eyes first, pictures the woman's face lighting up as she counts naira notes at a wooden table, morning light through a window, a smile she's fighting to hide — then writes THAT. Who gets closer to what they actually wanted?",
+      "options": [
+        { "id": "o1", "label": "The second one — she gave AI a picture, not a mood", "explain": "Exactly. \"Happy video\" could mean a thousand different things to a machine that has never met her or her shop. A specific picture — the light, the table, the money, the almost-smile — leaves far less to chance." },
+        { "id": "o2", "label": "The first one — shorter prompts are always safer", "explain": "Shorter isn't the same as clearer. \"Happy video for my shop\" is short, but it's foggy — the AI has to guess what happy looks like, whose shop, what kind of moment. Fog in, fog out." },
+        { "id": "o3", "label": "Neither — AI results are random no matter what you type", "explain": "AI has real randomness, yes, but it isn't pure chaos — it's steered by how specific your picture was. A clear vision narrows that randomness dramatically. That's the whole game." }
+      ],
+      "correct": "o1" },
+    { "id": "b3", "type": "read",
+      "prompt": "How to know your vision is actually ready.",
+      "title": "The friend test",
+      "body": [
+        "Here's a simple test to run before you ever open a prompt box. Close your eyes and picture your idea for ten seconds. Then imagine describing it out loud to a friend on a phone call — no photos, no gestures, just words. Could they picture almost exactly what you're seeing? If yes, your vision is sharp enough to hand to AI. If you're fumbling for words, or it's still fuzzy even in your own head, you're not ready to prompt yet — you're ready to think a little more first.",
+        "This isn't extra work bolted onto using AI. It IS the work. Typing the prompt is the fast, easy part — ten seconds. Building the clear picture in your head is where the real craft lives, and like any craft, it's a muscle. It gets stronger every single time you use it on purpose.",
+        "Notice what this means for you: you don't need to be technical to be excellent at this. You need to be a good noticer of the world — how afternoon light falls differently than morning light, how someone's face changes right before they laugh, what a busy street sounds like at 6pm. That noticing is your raw material. AI is just the tool that finally lets you build with it."
+      ],
+      "keyPoints": [
+        "Run the friend test before you prompt: could someone else picture it from your words alone?",
+        "Building the picture in your head IS the skill — typing it in is the easy part.",
+        "You don't need to be technical. You need to be a good noticer."
+      ] },
+    { "id": "b4", "type": "type_answer",
+      "prompt": "Try the friend test right now — there's no wrong answer here.",
+      "question": "Close your eyes for a moment and picture one scene you'd love to bring to life — a memory, a story, an idea for your business, anything. Now describe it like you're on the phone with a friend: what do they see, hear, feel?",
+      "keywords": [],
+      "minMatches": 0,
+      "hint": "",
+      "sampleAnswer": "" },
+    { "id": "b5", "type": "drag_sort",
+      "prompt": "Sort each instruction by how clear the picture behind it really is.",
+      "image": { "src": "/media/l7-vague-vs-clear.jpg", "alt": "Split image: a blurry indistinct scene beside the same scene rendered sharp and detailed", "caption": "Same idea, two very different levels of thinking." },
+      "items": [
+        { "id": "i1", "label": "\"make it look cool\"" },
+        { "id": "i2", "label": "A boy in a faded blue school uniform runs across a red dirt football field at golden hour, dust rising behind him" },
+        { "id": "i3", "label": "\"video for my business\"" },
+        { "id": "i4", "label": "A tailor's hands guiding purple ankara fabric under a sewing machine needle, morning light from a window" },
+        { "id": "i5", "label": "\"something with music\"" },
+        { "id": "i6", "label": "A woman in her sixties laughing so hard she covers her mouth, on a wooden bench outside a provisions shop" }
+      ],
+      "buckets": [
+        { "id": "vague", "label": "Vague mood" },
+        { "id": "clear", "label": "Clear vision" }
+      ],
+      "correct": { "i1": "vague", "i2": "clear", "i3": "vague", "i4": "clear", "i5": "vague", "i6": "clear" } },
+    { "id": "b6", "type": "lever",
+      "prompt": "Pull the lever across four ways people show up to AI. Land on the one that actually makes something worth showing.",
+      "minLabel": "Just watching", "maxLabel": "Full director",
+      "states": [
+        { "label": "Just scrolling", "description": "You watch other people's AI creations, amazed, but never open the tool yourself. Nothing gets made.", "image": "/media/l7-scrolling.jpg" },
+        { "label": "Copying", "description": "You type someone else's viral prompt, word for word. It works — but it's their vision wearing your name.", "image": "/media/l7-copying.jpg" },
+        { "label": "Vague direction", "description": "You open the tool with a fuzzy idea and a one-word prompt. AI has to guess. The result is generic — technically fine, instantly forgettable.", "image": "/media/l7-vague.jpg" },
+        { "label": "Clear vision", "description": "You did the work in your head first — the light, the face, the feeling. AI executes YOUR exact picture. This is directing.", "image": "/media/l5-lever-director.jpg" }
+      ],
+      "target": 3 },
+    { "id": "b7", "type": "type_answer",
+      "prompt": "Lock this in before you move on.",
+      "question": "Finish this in your own words: before I touch any AI tool, my first job is to ___.",
+      "keywords": [
+        ["picture", "imagine", "visualize", "vision", "see", "clear", "clearly"],
+        ["prompt", "type", "before", "first", "tool"]
+      ],
+      "minMatches": 1,
+      "hint": "Think back to the friend test — what has to happen inside your head before your fingers ever touch the keyboard?",
+      "sampleAnswer": "Before I touch any AI tool, my first job is to picture the exact scene clearly in my head — clearly enough that I could describe it to a friend — before I ever type a single word." }
+  ],
+  "tomorrow": "Time to choose your path — you already know how to think like a director. Now pick what you'll direct. 🎬💻"
 }$json$::jsonb, true)
 on conflict (id) do update set track = excluded.track, day = excluded.day,
   title = excluded.title, minutes = excluded.minutes,

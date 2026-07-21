@@ -76,6 +76,19 @@ and reject any output that contains lettering.
 | `l5-lever-director.jpg` | Lever state 3 | A person in a director's chair pointing confidently while robots operate cameras and paint canvases exactly to their vision — the human clearly in charge, coral spotlight |
 | `l5-lever-autopilot.jpg` | Lever state 4 | A person asleep in a chair while a robot assembly line churns out identical gray generic copies of the same product |
 
+## Lesson 6 — You are the director (mindset class)
+
+Deliberately reuses `l5-lever-director.jpg` twice (opening image + lever target)
+— same "director in the chair" picture the whole way through Foundations, on
+purpose. Only 3 new images needed here.
+
+| File | Where it shows | Generation prompt |
+|---|---|---|
+| `l7-vague-vs-clear.jpg` | Vague-vs-clear sort | Split image: left half a blurry, foggy, indistinct scene with no visible detail; right half the exact same scene rendered sharp, warm, and richly detailed with clear light and expression |
+| `l7-scrolling.jpg` | Lever state 1 | A person lying back on a couch late at night, passively scrolling a glowing phone, screen reflecting colorful content, nothing else happening in the room around them |
+| `l7-copying.jpg` | Lever state 2 | A person typing at a desk while a faint translucent hand that isn't their own guides their fingers on the keyboard, uninspired expression |
+| `l7-vague.jpg` | Lever state 3 | A person shrugging at a screen with a single fuzzy thought-bubble above their head, a confused robot on the other side producing a dull shapeless gray blob |
+
 ---
 
 # Track: AI Video & Cinema (chosen after Foundations)
