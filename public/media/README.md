@@ -149,5 +149,42 @@ purpose. Only 3 new images needed here.
 
 ---
 
+# Track: Build Apps with AI (chosen after Foundations)
+
+## Day 1 — What an app actually is
+
+| File | Where it shows | Generation prompt |
+|---|---|---|
+| `l8-app-anatomy.jpg` | Opening question | An app screen breaking apart into three glowing layers, labelled conceptually as buttons/screens, a data list, and connecting instruction arrows — clean tech-diagram feel, no readable text |
+
+## Day 3 — Prompting for code
+
+| File | Where it shows | Generation prompt |
+|---|---|---|
+| `l8-prompt-vague.jpg` | Lever state 1 | A hazy, half-formed app screen on a laptop, glitchy and undefined, a person shrugging beside it |
+| `l8-prompt-some.jpg` | Lever state 2 | A partially-formed app screen taking shape on a laptop, some elements sharp and some still fuzzy |
+| `l8-prompt-good.jpg` | Lever state 3 | A clean, mostly-finished app screen on a laptop, confident satisfied person nearby |
+| `l8-prompt-full.jpg` | Lever state 4 | A polished, pixel-sharp finished app screen glowing on a laptop, a person pointing at it with clear satisfaction, coral accent glow |
+
+## Day 5 — Planning your app
+
+| File | Where it shows | Generation prompt |
+|---|---|---|
+| `l8-planning.jpg` | Opening question | Boxes representing app screens connected by arrows on a notebook page, sketched by hand, showing a simple flow from one screen to the next |
+
+## Day 6 — Meet Replit
+
+| File | Where it shows | Generation prompt |
+|---|---|---|
+| `l8-replit.jpg` | Opening question | A browser window showing a chat panel on one side and a live app preview updating on the other side, futuristic clean UI, coral accent highlights |
+
+## Day 7 — Meet Lovable
+
+| File | Where it shows | Generation prompt |
+|---|---|---|
+| `l8-lovable.jpg` | Opening question | A smartphone glowing softly in a dark room, displaying a polished, business-ready finished app interface, warm confident mood |
+
+---
+
 **Want different framing, extra slots, or `.jpg`/`.webp` instead?** Ask Claude
 to update the lesson SQL and this list together so filenames stay in sync.
